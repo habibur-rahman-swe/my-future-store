@@ -1,0 +1,148 @@
+# Documentation
+HELP.md
+README.md
+
+# Maven
+**/target/
+**/.mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.maven.metadata.xml
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Spring Boot
+spring-boot-starter-logging
+spring-boot-devtools.properties
+application-local.yml
+application-local.yaml
+.h2.server.properties
+*.log
+logs/
+
+# IDE - STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+.idea_modules/
+out/
+
+# IDE - VS Code
+.vscode/
+.vscode-test/
+*.code-workspace
+
+# IDE - NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+**/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# IDE - Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+*.launch
+.factorypath
+
+# OS - Windows
+Thumbs.db
+*.lnk
+Desktop.ini
+~$*
+
+# OS - macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# OS - Linux
+.directory
+.Trash-*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Application runtime files
+*.pid
+logs/
+*.log
+*.log.*
+**/.gradle/
+**/build/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.h2.db
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# System files
+.DS_Store
+thumbs.db
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Node (if using npm/webpack)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Microservices - Additional patterns
+.settings/
+.classpath
+.project
+*.iml
+.gradle
+.m2/
+temp/
+tmp/
+*.tmp
+
+# System files
+.DS_Store
+thumbs.db
+
+# Node (if using npm/webpack)
+node_modules/
+npm-debug.log
+yarn-error.log
