@@ -3,6 +3,13 @@ spring:
     name: E-Commerce
   h2:
     console:
-      enable: true
+      enabled: true
   datasource:
-    url: jdbc:h2:mem:test
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+server:
+  port: 8081
