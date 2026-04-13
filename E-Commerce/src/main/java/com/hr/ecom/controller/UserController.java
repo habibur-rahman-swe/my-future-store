@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hr.ecom.model.User;
+import com.hr.ecom.dto.UserRequest;
+import com.hr.ecom.dto.UserResponse;
 import com.hr.ecom.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -25,26 +26,25 @@ public class UserController {
 	private final UserService userService;
 	
 	@GetMapping
-	public ResponseEntity<List<User>> getAllUsers() {
-		//return ResponseEntity.ok(userService.fethAllUsers());
-		return new ResponseEntity<List<User>>(userService.fethAllUsers(), HttpStatus.OK);
+	public ResponseEntity<List<UserResponse>> getAllUsers() {
+		return new ResponseEntity<List<UserResponse>>(userService.fethAllUsers(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getUser(@PathVariable Long id) {
+	public ResponseEntity<UserResponse> getUser(@PathVariable Long id) {
 		return userService.fetchUser(id)
 				.map(ResponseEntity::ok)
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@PostMapping
-	public ResponseEntity<String> createUser(@RequestBody User user) {
+	public ResponseEntity<String> createUser(@RequestBody UserRequest user) {
 		userService.createUser(user);
 		return ResponseEntity.ok("user added successfully");
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User user) {
+	public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserRequest user) {
 		Boolean updated = userService.updateUser(id, user);
 		if (updated) {
 			return ResponseEntity.ok("user updated successfully");
