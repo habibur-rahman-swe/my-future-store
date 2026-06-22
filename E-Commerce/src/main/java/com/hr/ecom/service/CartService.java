@@ -13,10 +13,12 @@ import com.hr.ecom.repository.CartItemRepository;
 import com.hr.ecom.repository.ProductRepository;
 import com.hr.ecom.repository.UserRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class CartService {
 
 	private final ProductRepository productRepository;
@@ -55,6 +57,25 @@ public class CartService {
 			cartItemRepository.save(cartItem);
 		}
 		return true;
+	}
+
+	public boolean deleteItemFromCart(String userId, Long productId) {
+		Optional<User> optUser = userRepository.findById(Long.valueOf(userId));
+		if (optUser.isEmpty()) {
+			return false;
+		}
+		User user = optUser.get();
+		Optional<Product> optProduct = productRepository.findById(productId);
+		if (optProduct.isEmpty()) {
+			return false;
+		}
+		Product product = optProduct.get();
+		
+		if (user != null && product != null) {
+			cartItemRepository.deleteByUserAndProduct(user, product);
+			return true;
+		}
+		return false;
 	}
 
 }
